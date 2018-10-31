@@ -1,0 +1,32 @@
+\documentclass[12pt,a4paper]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage{indentfirst}
+\usepackage{misccorr}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\begin{document}
+\section{Общая схема постановки задачи}
+\textbf{Важно: } рассматриваем только задачу классификации для простоты.
+\begin{enumerate}
+\item Формально расписываем что у нас есть (непараллельные корпуса) и какая модель у нас является переводчиком (decoder от RNN)
+\item Описываем, какой функционал хотелось бы минимизировать (можно описать в терминах классификации каждого слова при переводе)
+\item Объясняем, что поскольку параллельных данных нет, то предлагается свести задачу к нахождению общего пространства для двух языков. Здесь нужно формально выписать свойство, которым описывается это общее пространство.
+\end{enumerate}
+
+\section{Общие обозначения}
+\begin{itemize}
+\item Обучающая выборка на первом языке: $\mathfrak{D}^{\text{src}} = [\mathbf{s}_1^{\text{src}}, \dots, \mathbf{s}_{m_\text{src}}^{\text{src}}].$
+\item Обучающая выборка на втором языке: $\mathfrak{D}^{\text{tgt}} = [\mathbf{s}_1^{\text{tgt}}, \dots, \mathbf{s}_{m_\text{tgt}}^{\text{tgt}}].$
+\item Максимальная длина предложения: $l$.
+\item Мощность словаря на первом языке: $V^{\text{src}}$.
+\item Мощность словаря на втором языке: $V^{\text{tgt}}$.
+\item Предложение на первом языке: $\mathbf{s}^{\text{src}} = [x_1, \dots, x_l], \quad x_i \in \{1, \dots, V^{\text{src}}\}$. 
+\item Предложение на втором языке: $\mathbf{s}^{\text{tgt}} = [y_1, \dots, y_l], \quad y_i \in \{1, \dots, V^{\text{tgt}}\}$. 
+\item Энкодер: $\mathbf{f}$. (Если потребуется --- ставьте индекс src или tgt около модели).
+\item Декодер: $\mathbf{g}$. (Если потребуется --- ставьте индекс src или tgt около модели).
+\item Скрытое представление: $\mathbf{h}$.
+\item Валидационная выборка: $\mathfrak{D}^{valid} = \{(\mathbf{s}_1^{\text{src}}, \mathbf{s}_1^{\text{tgt}}), \dots, (\mathbf{s}_{m_\text{valid}}, \mathbf{s}_\text{valid})\}.$
+\item Параметры Seq2Seq-модели: $\mathbf{w}$.
+\end{itemize}
+\end{document}
