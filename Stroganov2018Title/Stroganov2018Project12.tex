@@ -61,15 +61,6 @@ $$L = a*L_{AE} + b*L_{TR}+c*L{ADV} \longrightarrow min$$
 здесь $a,b,c$ - калибруемые гиперпараметры.
 
 
-
-\section{Постановка задачи}
-   Даны обучающая выборка $\mathfrak{D}^{\text{src}} = \{\mathbf{s}_1^{\text{src}}, \dots, \mathbf{s}_{m_\text{src}}^{\text{src}}\}$, $\mathfrak{D}^{\text{tgt}} = \{\mathbf{s}_1^{\text{tgt}}, \dots, \mathbf{s}_{m_\text{tgt}}^{\text{tgt}}\}$, которая состоит из двух корпусов произвольных предложений для каждого языка; и валидационная выборка $\mathfrak{D}^{valid} = \{(\mathbf{\tilde{s}}_1^{\text{src}}, \mathbf{\tilde{s}}_1^{\text{tgt}}), \dots, (\mathbf{\tilde{s}}_{m_{\text{valid}}}^{\text{src}}, \mathbf{\tilde{s}}_{m_{\text{valid}}}^{\text{tgt}})\}$, которая состоит из пар параллельных предложений.
-   
-   Задача состоит в том, чтобы, используя обучающую выборку, построить модель $M$ перевода предложений c языка src на язык tgt и выбрать ее параметры таким образом, чтобы максимизировать среднее значение метрики BLEU на валидационной выборке 
-   $$
-   \frac{1}{m_{\text{valid}}} \sum_{i=1}^{m_{\text{valid}}} \text{BLEU}(M(\mathbf{\tilde{s}}_i^{\text{src}}), \mathbf{\tilde{s}}_i^{\text{tgt}}) \to \max_{M}
-   $$ 
-
 \subsection{Гипотеза}
    Пусть $\mathcal{S}^{l}$ -- множество всех предложений на языке $l \in \{\text{src}, \text{tgt}\}$. Выдвигается гипотеза о том, что существует единое латентное пространство $\mathcal{L}$ и отображения $\textbf{\textit{f}}^{l}: \mathcal{S}^{l} \to \mathcal{L}$ и $\textbf{\textit{g}}^{l}: \mathcal{L} \to \mathcal{S}^{l}$ такие, что 
    \begin{itemize}
