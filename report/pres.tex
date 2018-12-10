@@ -4,7 +4,7 @@
 % \documentclass[aspectratio=1610]{beamer}
 % \documentclass[aspectratio=169]{beamer}
 
-\usepackage{lmodern}
+\usepackage{fourier}
 
 % подключаем кириллицу 
 \usepackage[T2A]{fontenc}
@@ -17,7 +17,8 @@
 \usetheme{Copenhagen}
 
 % цветовая схема
-\usecolortheme{seahorse}
+\usecolortheme{crane}
+\renewcommand{\figurename}{Рисунок}
 
 \title{Обучение машинного перевода без параллельных текстов}   
 \subtitle{}
@@ -29,11 +30,7 @@
 
 % титульный слайд
 \begin{frame}
-	\begin{center}
-		\begin{LARGE}
-			Unsupervised Machine Translation
-		\end{LARGE}
-	\end{center}
+	\titlepage
 \end{frame}
 
 
@@ -78,6 +75,16 @@
 	Данная задача возникает при построении моделей перевода для низкоресурсных языков (т.е. языков, для которых данных в открытом доступе немного).
 	
 	
+\end{frame}
+
+\begin{frame}
+\frametitle{Описание алгоритма}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.9\textwidth]{drawing}
+\end{figure}
+
 \end{frame}
 
 \begin{frame}
@@ -135,14 +142,14 @@
 	\begin{figure}[h]
 		\centering
 		\includegraphics[width=0.9\textwidth]{decoder_size=500,attn_size=20,discr_size=20}
-		\caption{Типичный вид кривых обучения на выборке русский-украинский}
+		\caption{Вид кривых обучения на выборке русский-украинский}
 	\end{figure}
 	
 \end{center}
 \end{frame}
 
 \begin{frame}
-	\frametitle{Некоторое решение - Стемминг!} 
+	\frametitle{Применение стемминга} 
 	\begin{center}
 		
 		\textbf{Стемминг} — процесс нахождения основы слова для заданного исходного слова. Основа слова не обязательно совпадает с морфологическим корнем слова.
@@ -157,7 +164,7 @@
 \end{frame}
 
 \begin{frame}
-	\frametitle{Некоторое решение - Стемминг!} 
+	\frametitle{Результаты эксперимента} 
 	\begin{center}
 	
 	\begin{table}[H]
@@ -196,9 +203,9 @@
 	
 	Дальнейшие планы:
 	\begin{itemize}
-		\item 
+		\item Решение проблемы большого числа словоформ и слов не из словаря
 		
-		\item 
+		\item Поиск выборки с переводами более высокого качества
 	\end{itemize}
 	
 \end{frame}
