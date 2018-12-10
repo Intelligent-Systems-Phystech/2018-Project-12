@@ -193,6 +193,6 @@ class IndTranslator:
             encoder_outputs, decoder_outputs =\
                            self.wrapper.encode_decode(ind_batch, from_lang,
                                                       to_lang, self.max_len)
-        _, ind = decoder_outputs.squeeze().topk(1, dim=1)
+        _, ind = decoder_outputs.squeeze().topk(1, dim=2)
         return ind.squeeze()
 
